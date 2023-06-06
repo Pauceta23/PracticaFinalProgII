@@ -3,7 +3,6 @@ package practica_final1;
 import practica_final1.paneles.PanelVisualizaciones;
 import practica_final1.paneles.PanelMenu;
 import practica_final1.paneles.PanelBotones;
-import practica_final1.ventanas.NuevapartidaDatos;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JSplitPane;
@@ -36,16 +35,12 @@ public class Practica_Final1 extends JFrame {
     }
     
     public static void main(String[] args) {
-//        Practica_Final1 pf = new Practica_Final1();
-//        pf.setVisible(true);
-//        pf.setDefaultCloseOperation(EXIT_ON_CLOSE);
-//        pf.setSize(1520, 900);
-//        pf.setTitle("PRÁCTICA - PROGRAMACIÓN II - 2022-2023 - UIB");
-//        pf.setLocationRelativeTo(null);
-
-
-          NuevapartidaDatos npd = new NuevapartidaDatos();
-          npd.setVisible(true);
+        Practica_Final1 pf = new Practica_Final1();
+        pf.setVisible(true);
+        pf.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        pf.setSize(1520, 900);
+        pf.setTitle("PRÁCTICA - PROGRAMACIÓN II - 2022-2023 - UIB");
+        pf.setLocationRelativeTo(null);
 
     }
     

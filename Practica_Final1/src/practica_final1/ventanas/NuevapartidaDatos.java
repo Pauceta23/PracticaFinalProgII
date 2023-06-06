@@ -53,13 +53,7 @@ public class NuevapartidaDatos extends JFrame {
 
         panel.setLayout(new GridLayout(4, 2));
         panel.setBackground(Color.BLACK);
-        this.addWindowListener(new WindowAdapter() {
 
-            @Override
-            public void windowClosing(WindowEvent evt) {
-                exitForm(evt);
-            }
-        });
         
         Font font = new Font("Courier",1,16);
         nomjug.setFont(font);
@@ -115,9 +109,6 @@ public class NuevapartidaDatos extends JFrame {
         });
     }
 
-    private void exitForm(WindowEvent evt) {
-        System.exit(0);
-    }
 
     private void jtfGrausKeyTyped(KeyEvent evt) {
 //        objJTextField = evt.getSource(); //objecte que ha produit l'esdeveniment

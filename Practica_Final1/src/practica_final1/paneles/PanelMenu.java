@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import practica_final1.ventanas.NuevapartidaDatos;
 
 /**
  *
@@ -28,7 +29,7 @@ public class PanelMenu extends JMenuBar {
 
     private void initComponents() {
         menu = new JMenu("MENU");
-        menu.setFont(new Font ("Courier", 1,20));
+        menu.setFont(new Font("Courier", 1, 20));
         menu.setForeground(Color.WHITE);
 
         it0 = new JMenuItem("NUEVA PARTIDA");
@@ -37,49 +38,41 @@ public class PanelMenu extends JMenuBar {
         it0.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ev) {
-                
+                NuevapartidaDatos npd = new NuevapartidaDatos();
+                npd.setVisible(true);
             }
         });
-        
-        
-        
+
         it1 = new JMenuItem("CLASIFICACIÓN GENERAL");
         it1.setBackground(Color.BLACK);
         it1.setForeground(Color.WHITE);
         it1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ev) {
-                
+
             }
         });
-        
-        
-        
-        
+
         it2 = new JMenuItem("HISTORIAL");
         it2.setBackground(Color.BLACK);
         it2.setForeground(Color.WHITE);
         it2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ev) {
-                
+
             }
         });
-        
-        
-        
+
         it3 = new JMenuItem("CAMBIAR DIRECTORIO DE IMÁGENES");
         it3.setBackground(Color.BLACK);
         it3.setForeground(Color.WHITE);
         it3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ev) {
-                
+
             }
         });
-        
-        
-        
+
         it4 = new JMenuItem("SALIR");
         it4.setBackground(Color.BLACK);
         it4.setForeground(Color.WHITE);
@@ -89,9 +82,7 @@ public class PanelMenu extends JMenuBar {
                 new PanelBotones().salir();
             }
         });
-        
-        
-        
+
         menu.add(it0);
         menu.add(it1);
         menu.add(it2);
