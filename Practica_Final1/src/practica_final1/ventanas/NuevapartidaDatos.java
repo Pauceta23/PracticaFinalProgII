@@ -3,25 +3,28 @@ package practica_final1.ventanas;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import practica_final1.main.DatosPartida;
+import practica_final1.main.DatosPartida.ErrorDatosInsuficientes;
+import practica_final1.main.Partida;
 
 /**
  *
  * @author Pauceta
  */
 public class NuevapartidaDatos extends JFrame {
+
     private JPanel panel;
     private JLabel nomjug;
     private JTextField intro_nomjug;
@@ -30,6 +33,8 @@ public class NuevapartidaDatos extends JFrame {
     private JLabel versub;
     private JTextField intro_versub;
     private JButton confirmar;
+    
+    private boolean nom,sub1,sub2; //booleanos para controlar los datos introducidos
 
 //    private Object objJTextField;
     //Per controlar a quina caixa de text s'ha escrit usam aquest objecte
@@ -54,23 +59,21 @@ public class NuevapartidaDatos extends JFrame {
         panel.setLayout(new GridLayout(4, 2));
         panel.setBackground(Color.BLACK);
 
-        
-        Font font = new Font("Courier",1,16);
+        Font font = new Font("Courier", 1, 16);
+
         nomjug.setFont(font);
         nomjug.setText("NOMBRE JUGADOR");
         nomjug.setForeground(Color.WHITE);
         panel.add(nomjug);
 
-        //        intro_nomjug.setText("0.00");
         intro_nomjug.setHorizontalAlignment(SwingConstants.RIGHT);
         panel.add(intro_nomjug);
-        
+
         horsub.setFont(font);
         horsub.setText("NÚMERO SUBDIVISIONES HORIZONTAL");
         horsub.setForeground(Color.WHITE);
         panel.add(horsub);
 
-        //        intro_horsub.setText("32.00");
         intro_horsub.setHorizontalAlignment(SwingConstants.RIGHT);
         panel.add(intro_horsub);
 
@@ -79,45 +82,64 @@ public class NuevapartidaDatos extends JFrame {
         versub.setForeground(Color.WHITE);
         panel.add(versub);
 
-//        intro_versub.setText("0.00");
         intro_versub.setHorizontalAlignment(SwingConstants.RIGHT);
         panel.add(intro_versub);
 
-        confirmar.setText("Acceptar");
+        confirmar.setText("CONFIRMAR");
         confirmar.setMnemonic('A');
         getRootPane().setDefaultButton(confirmar);//botó per omisió intro
         panel.add(confirmar);
-        
-        
+
         getContentPane().add(panel);
 
-        //Per controlar els esdeveniments KeyEvent a les finestres de text
-        KeyAdapter kl = new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent evt) {
-                jtfGrausKeyTyped(evt);
-            }
-        };
-        intro_nomjug.addKeyListener(kl);
-        intro_horsub.addKeyListener(kl);
-
-        //Per controlar el click sobre Acceptar
+        
+        
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         confirmar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 confirmarActionPerformed(evt);
             }
         });
     }
 
+    private void confirmarActionPerformed(ActionEvent evt) {
+        try{
+            DatosPartida partida = new DatosPartida(intro_nomjug.getText(),intro_horsub.getText(),
+            intro_versub.getText());
+            
+        }catch(ErrorDatosInsuficientes e){
+            System.out.println("Los datos introducidos no son correctos");
+            
+        }catch(NumberFormatException n){
+            System.out.println("Introduce valores númericos en las subdivisiones");
+        }
+            //Procedimiento para empezar una partida
 
-    private void jtfGrausKeyTyped(KeyEvent evt) {
-//        objJTextField = evt.getSource(); //objecte que ha produit l'esdeveniment
+            //No se han introducido todos los datos necesarios para empezar la partida
+
+        }
+
     }
 
-    private void confirmarActionPerformed(ActionEvent evt) {
-        try {
-            double gr;
-            //Si el text s'ha escrit a la caixa de graus centigrads
+
+//Si el text s'ha escrit a la caixa de graus centigrads
 //            if (objJTextField == intro_nomjug) {
 //                gr = Double.parseDouble(intro_nomjug.getText()) * 9.0 / 5.0 + 32.0;
 //                String s = String.format("%.2f", gr); //arrodoneix 2 decimals
@@ -128,10 +150,3 @@ public class NuevapartidaDatos extends JFrame {
 //                gr = (Double.parseDouble(intro_horsub.getText()) - 32.0) * 5.0 / 9.0;
 //                String s = String.format("%.2f", gr);
 //                intro_nomjug.setText(s);
-
-        } catch (NumberFormatException e) {
-            intro_nomjug.setText("0.00");
-            intro_horsub.setText("32.00");
-        }
-    }
-}
