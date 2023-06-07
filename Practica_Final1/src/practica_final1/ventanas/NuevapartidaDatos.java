@@ -125,10 +125,10 @@ public class NuevapartidaDatos extends JFrame {
             intro_versub.getText());
             
         }catch(ErrorDatosInsuficientes e){
-            System.out.println("Los datos introducidos no son correctos");
+            VentanaError error = new VentanaError("ERROR! Datos insuficientes");
             
         }catch(NumberFormatException n){
-            System.out.println("Introduce valores númericos en las subdivisiones");
+            VentanaError error = new VentanaError("ERROR! Datos incorrectos");
         }
             //Procedimiento para empezar una partida
 
